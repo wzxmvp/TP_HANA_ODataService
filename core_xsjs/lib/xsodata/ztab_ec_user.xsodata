@@ -1,0 +1,4 @@
+service {
+    "TP_HANA_DataService.HANADB.ZEC::ZTAB_EC_USER"
+	  as "EC_USER"  
+}

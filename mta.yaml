@@ -1,0 +1,27 @@
+ID: TP_HANA_DataService
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: HANADB
+    type: hdb
+    path: HANADB
+    requires:
+      - name: hdi_HANADB
+  - name: core_xsjs
+    type: nodejs
+    path: core_xsjs
+    provides:
+      - name: core_xsjs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: hdi_HANADB
+      - name: HANADB
+      - name: UAA-service
+resources:
+  - name: hdi_HANADB
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: UAA-service
+    type: com.sap.xs.uaa-space
