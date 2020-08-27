@@ -7,6 +7,7 @@ modules:
     path: HANADB
     requires:
       - name: hdi_HANADB
+      - name: UAA-service
   - name: core_xsjs
     type: nodejs
     path: core_xsjs
@@ -23,5 +24,9 @@ resources:
     properties:
       hdi-container-name: '${service-name}'
     type: com.sap.xs.hdi-container
+    parameters:
+      config:
+         schema: ZSCM_SF_EC
+         database_id: 3ac8581c-d2ed-499f-af5f-dc116d78255d
   - name: UAA-service
     type: com.sap.xs.uaa-space
